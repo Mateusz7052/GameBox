@@ -17,6 +17,8 @@ class Board:
     Methods:
         __str__(): Returns a string representation of the board for display.
         __repr__(): Returns the same string representation as __str__().
+        add_tile(Tile, int, int): Adds the tile to the tiles 2D list at specified position.
+            Returns True if tile was added. Returns False if position was already taken.
     """
 
     def __init__(self, board_size: int):
@@ -39,3 +41,10 @@ class Board:
 
     def __repr__(self):
         return self.__str__()
+
+    def add_tile(self, tile: Tile, row: int, col: int) -> bool:
+        if self.tiles[row][col].character == "":
+            self.tiles[row][col] = tile
+            return True
+        else:
+            return False
